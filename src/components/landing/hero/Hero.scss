@@ -1,0 +1,162 @@
+.hero {
+  .hero-section {
+    position: relative;
+    width: 100%;
+    /* Maintain aspect ratio to prevent distortion */
+    aspect-ratio: 1550 / 825;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    /* Ensure image covers area without squashing */
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+        rgba(0, 0, 0, .95) 0%,
+        rgba(0, 0, 0, 0.35) 30%,
+        rgba(0, 0, 0, 0) 60%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 50px;
+    color: white;
+  }
+
+  .hero-content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    opacity: 70%;
+  }
+
+  .hero-head {
+    font-size: 74px;
+    line-height: 0.9;
+    font-weight: 600;
+  }
+
+  .hero-content-right {
+    display: flex;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .arrow-icon {
+    width: 15px;
+    height: 15px;
+    color: black;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* --- RESPONSIVE STYLES --- */
+
+  @media (max-width: 1200px) {
+    .hero-head {
+      font-size: 60px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .hero-head {
+      font-size: 48px;
+    }
+    .hero-content {
+      padding: 40px;
+    }
+  }
+
+  @media (max-width: 765px) {
+    .hero-content {
+      padding: 25px;
+    }
+    
+    .hero-head {
+      font-size: 32px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+    }
+
+    .hero-content-left {
+      gap: 8px;
+    }
+
+    /* Maintain Shop Now button layout but reduce size */
+    .button {
+      padding: 10px 18px;
+      font-size: 12px;
+      gap: 8px;
+    }
+
+    .arrow-icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .hero-content {
+      padding: 15px;
+    }
+
+    .hero-head {
+      font-size: 24px;
+    }
+
+    .button {
+      padding: 8px 14px;
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    /* Stack only on very small screens if necessary, otherwise keep side-by-side */
+    .hero-content {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 15px;
+    }
+
+    .hero-head {
+      font-size: 22px;
+    }
+
+    .button {
+      width: fit-content; // Keep it from being full-width as requested
+    }
+  }
+}
