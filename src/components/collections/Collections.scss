@@ -1,0 +1,176 @@
+.collection-content {
+  display: flex;
+  padding-top: 0px;
+  position: relative;
+
+  .collection-content-left {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.35) 30%,
+      rgba(0, 0, 0, 0) 60%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .men-women {
+    height: 900px;
+    object-fit: cover;
+    //display: block;
+    width: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .collection-content-left:hover .men-women {
+    transform: scale(1.09);
+  }
+
+  .collection-con {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 50px;
+    color: white;
+    pointer-events: none;
+  }
+
+  .collection-con .button {
+    pointer-events: auto;
+  }
+
+  .men {
+    font-size: 46px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  .hero-content-right {
+    display: flex;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+
+    background: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .arrow-icon {
+    width: 15px;
+    height: 15px;
+    color: black;
+  }
+
+  .button:hover .arrow-icon {
+    animation: arrowSlide 1s ease;
+  }
+
+  @keyframes arrowSlide {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(6px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+
+@media (max-width: 1500px) {
+  .collection-content .men-women {
+    height: auto;
+    aspect-ratio: 4 / 5.2;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1200px) {
+  .collection-content {
+    .men {
+      font-size: 38px;
+    }
+
+    .collection-con {
+      padding: 30px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .collection-content {
+    flex-direction: column; 
+    
+    .collection-content-left {
+      width: 100%;
+    }
+
+    .men-women {
+      aspect-ratio: 16 / 9; 
+    }
+  }
+}
+
+@media (max-width: 810px) {
+  .collection-content {
+    .collection-con {
+      flex-direction: column; 
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 20px;
+      padding: 25px;
+    }
+
+    .men {
+      font-size: 32px;
+    }
+
+    .men-women {
+      aspect-ratio: 4 / 5;
+    }
+
+    .button {
+      padding: 12px 18px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-content {
+    .men {
+      font-size: 26px;
+    }
+    
+    .collection-con {
+      gap: 15px;
+      padding: 20px;
+    }
+  }
+}

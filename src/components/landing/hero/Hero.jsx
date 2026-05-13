@@ -26,7 +26,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="hero-content-right">
-            <Link href="/shop">
+            <Link href="/men">
               <button className="button">
                 Shop Now
                 <img
