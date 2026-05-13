@@ -18,11 +18,12 @@ export const products = [
       "Minimal premium hoodie crafted for everyday comfort and clean styling.",
     fabric: "100% Cotton",
 
-    thumbnail: "/images/products/sand-hoodie/thumb.jpg",
+    thumbnail: "/images/products/sand-hoodie-front.avif",
+     hoverImage: "/images/products/sand-hoodie-back.avif",
 
     images: [
-      "/images/products/sand-hoodie/1.jpg",
-      "/images/products/sand-hoodie/2.jpg",
+      "/images/products/sand-hoodie-back.avif",
+     
       "/images/products/sand-hoodie/3.jpg",
     ],
 
@@ -49,10 +50,11 @@ export const products = [
 
     fabric: "100% Cotton",
 
-    thumbnail: "/images/products/black-oversize/thumb.jpg",
+    thumbnail: "/images/products/black-tshirt-front.avif",
+     hoverImage:  "/images/products/black-tshirt-back.avif",
 
     images: [
-      "/images/products/black-oversize/1.jpg",
+      "/images/products/black-tshirt-back.avif",
       "/images/products/black-oversize/2.jpg",
     ],
 
@@ -80,11 +82,12 @@ export const products = [
 
     fabric: "Cotton Blend",
 
-    thumbnail: "/images/products/utility-pants/thumb.jpg",
+    thumbnail: "/images/products/core-utility-pants-front.avif",
+     hoverImage: "/images/products/core-utility-pants.avif",
 
     images: [
-      "/images/products/utility-pants/1.jpg",
-      "/images/products/utility-pants/2.jpg",
+      "/images/products/core-utility-pants.avif",
+      "/images/products/core-utility-pants.avif",
     ],
 
     tags: ["utility", "minimal", "cargo"],
