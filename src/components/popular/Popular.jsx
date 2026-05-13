@@ -18,12 +18,22 @@ const Popular = () => {
             <div className="product-card" key={product.id}>
               <Link href={`/products/${product.slug}`}>
                 <div className="product-image-wrapper">
+                  
                   <Image
                     src={product.thumbnail}
                     alt={product.name}
                     width={500}
                     height={700}
                     className="product-image"
+                  />
+                  
+                  
+                  <Image
+                    src={product.hoverImage}
+                    alt={product.name}
+                    width={500}
+                    height={700}
+                    className="product-image-hover"
                   />
 
                   <div className="product-overlay-button">

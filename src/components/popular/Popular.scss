@@ -20,7 +20,7 @@
     line-height: 1.1;
     font-weight: 600;
     max-width: 900px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #111;
   }
 
@@ -61,15 +61,32 @@
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
+  .product-image-hover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition:
+      opacity 0.5s ease,
+      transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    pointer-events: none;
+  }
   .product-card:first-child .product-image {
     aspect-ratio: 4 / 6.2;
     /* Taller featured item on desktop */
   }
 
   .product-card:hover .product-image {
+    opacity: 0;
     transform: scale(1.05);
   }
 
+  .product-card:hover .product-image-hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
   .product-overlay-button {
     position: absolute;
     left: 20px;
@@ -152,15 +169,15 @@
       align-items: stretch;
 
       /* Keep ONLY 2 product cards visible */
-      .product-card:nth-child(n+3) {
+      .product-card:nth-child(n + 3) {
         display: none !important;
       }
     }
 
     .product-card {
       width: 100%;
-      grid-column: span 1 !important; 
-      
+      grid-column: span 1 !important;
+
       .product-image-wrapper {
         width: 100%;
         height: auto;
@@ -169,7 +186,7 @@
       .product-image {
         width: 100% !important;
         height: auto !important;
-        aspect-ratio: 4 / 5.2 !important; 
+        aspect-ratio: 4 / 5.2 !important;
         object-fit: cover !important;
         object-position: center;
         display: block;
@@ -191,7 +208,7 @@
 
 @media (max-width: 800px) {
   .popular {
-    padding: 60px 0px; 
+    padding: 60px 0px;
 
     .popular-content {
       padding: 0 20px;
@@ -208,7 +225,7 @@
       margin: 30px 0 0 !important;
       gap: 40px; /* Vertical gap between stacked products */
 
-      .product-card:nth-child(n+3) {
+      .product-card:nth-child(n + 3) {
         display: none !important;
       }
     }

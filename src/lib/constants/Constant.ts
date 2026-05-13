@@ -45,8 +45,7 @@ export const products = [
     colors: ["Black"],
     sizes: ["S", "M", "L"],
 
-    description:
-      "Relaxed oversized fit with heavyweight premium cotton feel.",
+    description: "Relaxed oversized fit with heavyweight premium cotton feel.",
 
     fabric: "100% Cotton",
 
@@ -91,7 +90,7 @@ export const products = [
     tags: ["utility", "minimal", "cargo"],
   },
 
-  {
+   {
     id: "4",
     slug: "faded-black-jeans",
     name: "Faded Black Jeans",
@@ -100,28 +99,34 @@ export const products = [
     price: 79,
     oldPrice: null,
     currency: "USD",
+
     isSale: false,
     isNew: true,
-    rating: 4.8,
+    isPopular: false,
+
+    rating: 4.9,
     reviews: 52,
+
     colors: ["Faded Black"],
     sizes: ["S", "M", "L"],
 
     description:
-      "Straight-leg denim with subtle fading and modern detailing.",
+      "Relaxed straight-fit denim with subtle distressed detailing and washed finish.",
 
-    fabric: "100% Cotton",
+    fabric: "100% Cotton Denim",
 
-    thumbnail: "/images/products/faded-black-jeans/thumb.jpg",
+    thumbnail: "/images/products/faded-black-jeans-front.avif",
+
+    hoverImage: "/images/products/Faded-black-jeans-hover.avif",
 
     images: [
-      "/images/products/faded-black-jeans/1.jpg",
-      "/images/products/faded-black-jeans/2.jpg",
-      "/images/products/faded-black-jeans/3.jpg",
+      "/images/products/faded-black-jeans.avif",
+      "/images/products/Faded-black-jeans-hover.avif",
     ],
 
-    tags: ["denim", "streetwear", "washed"],
+    tags: ["denim", "washed", "new"],
   },
+
 
   {
     id: "5",
@@ -138,22 +143,22 @@ export const products = [
     reviews: 95,
     colors: ["Gray", "Black"],
     sizes: ["S", "M", "L"],
-    isPopular:true,
+    isPopular: true,
     description:
       "Classic everyday hoodie with premium heavyweight construction.",
 
     fabric: "Cotton Fleece",
 
-    thumbnail: "/images/products/Essential-hoodie.avif",
+    thumbnail: "/images/products/essential-hooodie-front.avif",
+    hoverImage: "/images/products/Essential-hoodie.avif",
 
     images: [
       "/images/products/essential-hoodie/1.jpg",
-      "/images/products/essential-hoodie/2.jpg",
+      "/images/products/Essential-hoodie.avif",
     ],
 
     tags: ["hoodie", "essential", "minimal"],
   },
-
 
   {
     id: "6",
@@ -165,28 +170,28 @@ export const products = [
     oldPrice: null,
     currency: "USD",
     isSale: false,
-    isNew: true,
+    isNew: false,
     rating: 4.6,
     reviews: 41,
     colors: ["Forest Green"],
     sizes: ["S", "M", "L"],
-    isPopular :true,
+    isPopular: true,
     description:
       "Deep green oversized tee inspired by nature and relaxed styling.",
 
     fabric: "100% Cotton",
 
-    thumbnail: "/images/products/Forest-tshirt.avif",
+    thumbnail: "/images/products/forest-tshirt-front.avif",
+    hoverImage: "/images/products/Forest-tshirt.avif",
 
     images: [
       "/images/products/forest-tee/1.jpg",
-      "/images/products/forest-tee/2.jpg",
+      "/images/products/Forest-tshirt.avif",
     ],
 
     tags: ["oversized", "green", "minimal"],
   },
 
-  
   {
     id: "7",
     slug: "ocean-hoodie",
@@ -198,7 +203,7 @@ export const products = [
     currency: "USD",
     isSale: false,
     isNew: false,
-    isPopular:true,
+    isPopular: true,
     rating: 4.7,
     reviews: 38,
     colors: ["Ocean Blue"],
@@ -209,13 +214,89 @@ export const products = [
 
     fabric: "Cotton Blend",
 
-    thumbnail: "/images/products/ocean-hoodie.webp",
+    thumbnail: "/images/products/ocean-blu-hoodie-front.avif",
+    hoverImage: "/images/products/ocean-hoodie.webp",
 
     images: [
       "/images/products/ocean-hoodie/1.jpg",
-      "/images/products/ocean-hoodie/2.jpg",
+      "/images/products/ocean-hoodie.webp",
     ],
 
     tags: ["hoodie", "blue", "streetwear"],
+  },
+
+  {
+    id: "8",
+    slug: "sand-oversize-tshirt",
+    name: "Sand Oversize T-Shirt",
+    category: "T-Shirts",
+    gender: "Unisex",
+    price: 49,
+    oldPrice: null,
+    currency: "USD",
+
+    isSale: false,
+    isNew: true,
+    isPopular: false,
+
+    rating: 4.8,
+    reviews: 34,
+
+    colors: ["Sand Beige"],
+    sizes: ["S", "M", "L"],
+
+    description:
+      "Relaxed oversized tee crafted with soft heavyweight cotton and clean minimal styling.",
+
+    fabric: "100% Cotton",
+
+    thumbnail: "/images/products/yellow-tshirt-front.avif",
+
+    hoverImage: "/images/products/yellow-tshirt-hover.avif",
+
+    images: [
+      "/images/products/sand-oversize-tshirt.avif",
+      "/images/products/yellow-tshirt-hover.avif",
+    ],
+
+    tags: ["oversized", "minimal", "new"],
+  },
+
+ 
+  {
+    id: "9",
+    slug: "distressed-light-jeans",
+    name: "Distressed Light Jeans",
+    category: "Jeans",
+    gender: "Unisex",
+    price: 79,
+    oldPrice: null,
+    currency: "USD",
+
+    isSale: false,
+    isNew: true,
+    isPopular: false,
+
+    rating: 4.7,
+    reviews: 29,
+
+    colors: ["Light Blue"],
+    sizes: ["S", "M", "L"],
+
+    description:
+      "Vintage-inspired relaxed denim with distressed knee detailing and faded wash.",
+
+    fabric: "100% Cotton Denim",
+
+    thumbnail: "/images/products/Distressed Light Jeans Front.avif",
+
+    hoverImage: "/images/products/distressed-light-jeans-hover.avif",
+
+    images: [
+      "/images/products/distressed-light-jeans.avif",
+      "/images/products/distressed-light-jeans-hover.avif",
+    ],
+
+    tags: ["denim", "distressed", "new"],
   },
 ];
