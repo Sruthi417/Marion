@@ -4,6 +4,7 @@ import Collection from "../components/collections/Collections"
 import NewArrivals from "../components/newarrivals/NewArrivals"
 import OurStory from "../components/ourstory/ourStory"
 import Discount from "../components/disccount/Discount"
+import  Footer from "../components/footer/Footer"
 const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Home = () => {
     <NewArrivals/>
     <OurStory/>
     <Discount/>
+    <Footer/>
     </>
     )
 }
