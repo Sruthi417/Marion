@@ -192,8 +192,13 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .new-card:nth-child(n+3) {
+    display: none;
+  }
+
   .new-image {
-    height: 620px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -208,19 +213,18 @@
 
   .newArrivals-products {
     grid-template-columns: 1fr;
-
     gap: 30px;
   }
 
   .new-image {
-    height: 600px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .product-overlay-button {
     left: 16px;
     right: 16px;
     bottom: 16px;
-
     padding: 18px;
   }
 }
