@@ -5,8 +5,20 @@ import { useEffect, useState } from "react";
 
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-      const [scrolled, setScrolled] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,26 +34,33 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () =>
+    return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "unset"; // Cleanup
+    };
   }, []);
 
 
   return (
-    <div className={`nav ${scrolled ? "scrolled" : ""}`}>
+    <div className={`nav ${scrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""}`}>
       <div className="nav-full">
-        <div className="nav-left">
-          <Link href="/men" className="nav-left-content">
+        <div className="nav-mobile-toggle">
+          <button className={`menu__icon ${isOpen ? "active" : ""}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div className={`nav-left ${isOpen ? "open" : ""}`}>
+          <Link href="/men" className="nav-left-content" onClick={() => setIsOpen(false)}>
             Men
           </Link>
-          <Link href="/women" className="nav-left-content">
+          <Link href="/women" className="nav-left-content" onClick={() => setIsOpen(false)}>
             Women
           </Link>
-          <Link href="/our-story" className="nav-left-content">
-            
+          <Link href="/our-story" className="nav-left-content" onClick={() => setIsOpen(false)}>
             Our Story
           </Link>
-          <Link href="/contact" className="nav-left-content">
+          <Link href="/contact" className="nav-left-content" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
         </div>

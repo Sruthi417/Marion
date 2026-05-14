@@ -12,8 +12,13 @@
   .nav-full {
     display: flex;
     justify-content: space-between;
-    
+    align-items: center;
   }
+
+  .nav-mobile-toggle {
+    display: none;
+  }
+
   .nav-left {
     display: flex;
     gap: 15px;
@@ -25,7 +30,7 @@
     text-decoration: none;
     font-weight: bold;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-     transition: color 0.3s ease;
+    transition: color 0.3s ease;
   }
 
   .nav-center-content {
@@ -35,16 +40,18 @@
     color: white;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-weight: bold;
-     transition: color 0.3s ease;
+    transition: color 0.3s ease;
   }
 
   .nav-right {
     display: flex;
     gap: 13px;
+    align-items: center;
   }
 
   .nav-button {
     all: unset;
+    cursor: pointer;
   }
 
   .nav-button img {
@@ -56,26 +63,149 @@
     height: 25px;
     width: 25px;
   }
-
 }
-
 
 .nav.scrolled {
-    background: white;
+  background: white;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 22px 50px;
 
-    border-bottom:  1px solid #dcdcdc;;
-    padding:  22px 50px;;
-
-     .nav-buttons img {
-  width: 20px;
-  height: 20px;
-}
+  .nav-buttons img {
+    width: 20px;
+    height: 20px;
   }
 
-  .nav.scrolled .nav-left-content,
-  .nav.scrolled .nav-center-content {
+  .nav-left-content,
+  .nav-center-content {
     color: rgb(8, 8, 8);
   }
+
+  .menu__icon span:before {
+    background-color: #000;
+  }
+}
+
+/* Hamburger Icon Styles from Uiverse.io */
+.menu__icon {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+}
+
+.menu__icon span {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+}
+
+.menu__icon span:before {
+  content: "";
+  width: 1.5rem;
+  height: 0.125rem;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.1008s;
+}
+
+.menu__icon span:nth-child(1)::before {
+  top: 0.625rem;
+  transform: translateY(-3px);
+}
+
+.menu__icon span:nth-child(2)::before {
+  bottom: 0.625rem;
+  transform: translateY(3px);
+}
+
+.menu__icon:hover,
+.menu__icon.active {
+  span:nth-child(1),
+  span:nth-child(2) {
+    transition: transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  span:nth-child(1)::before,
+  span:nth-child(2)::before {
+    transform: none;
+    transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+  }
+
+  span:nth-child(1) {
+    transform: rotate(45deg) translateY(1px);
+  }
+
+  span:nth-child(2) {
+    transform: rotate(-45deg) translateY(-1px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    padding: 20px 30px;
+
+    .nav-mobile-toggle {
+      display: block;
+      order: 1;
+    }
+
+    .nav-center {
+      order: 2;
+    }
+
+    .nav-right {
+      order: 3;
+    }
+
+    .nav-left {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 99;
+      gap: 30px;
+
+      &.open {
+        left: 0;
+      }
+
+      .nav-left-content {
+        font-size: 24px;
+        color: white !important;
+      }
+    }
+  }
+
+  .nav.scrolled {
+    padding: 15px 30px;
+  }
+}
+
+.nav.menu-open {
+  .menu__icon span:before {
+    background-color: #fff !important;
+  }
+}
+
 
   
 
