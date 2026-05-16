@@ -93,13 +93,19 @@ const Navbar = ({ forceScrolled = false }) => {
           <button className="nav-button">
             <img
               src={
-                scrolled ? "/icons/search-black.svg" : "/icons/search-white.svg"
+                scrolled || forceScrolled
+                  ? "/icons/search-black.svg"
+                  : "/icons/search-white.svg"
               }
             />
           </button>
           <Link href="/cart" className="nav-buttons">
             <img
-              src={scrolled ? "/icons/cart-black.png" : "/icons/cart-white.png"}
+              src={
+                scrolled || forceScrolled
+                  ? "/icons/cart-black.png"
+                  : "/icons/cart-white.png"
+              }
               alt="Cart"
             />
           </Link>

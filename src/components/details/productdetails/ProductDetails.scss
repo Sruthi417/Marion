@@ -9,7 +9,8 @@
 
 /* LEFT GALLERY */
 
-.product-gallery {
+.gallery-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -21,6 +22,46 @@
   display: block;
   object-fit: cover;
   background: #f4f4f4;
+}
+
+.gallery-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(200, 200, 200, 0.6);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(180, 180, 180, 0.8);
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); // Make the arrow white
+  }
+
+  &.prev {
+    left: 20px;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.next {
+    right: 20px;
+  }
 }
 
 /* RIGHT CONTENT */
@@ -238,15 +279,15 @@
 .return-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 5px;
   margin-top: 35px;
   color: #555;
   font-size: 15px;
 }
 
 .return-info img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 }
 
 /* SIZE GUIDE MODAL */
@@ -260,7 +301,7 @@
 .size-guide-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .size-guide-content {
@@ -328,16 +369,42 @@
 
 /* RESPONSIVE */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
   .product-detail {
     grid-template-columns: 1fr;
     gap: 50px;
+    padding: 0 0 100px;
+  }
+
+  .product-gallery {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .gallery-container {
+    display: block;
+    gap: 0;
+  }
+
+  .gallery-image {
+    display: none;
+    aspect-ratio: 1/1.2;
+    object-fit: cover;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .gallery-arrow {
+    display: flex;
   }
 
   .product-content {
     position: relative;
     top: unset;
+    padding: 0 25px;
   }
 
 }

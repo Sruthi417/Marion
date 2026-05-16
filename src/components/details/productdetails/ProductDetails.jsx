@@ -11,6 +11,17 @@ const ProductDetails = ({ product }) => {
   const [openSizeGuide, setOpenSizeGuide] = useState(false);
 
   const [selectedSize, setSelectedSize] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + product.images.length) % product.images.length
+    );
+  };
 
   return (
     <>
@@ -126,14 +137,27 @@ const ProductDetails = ({ product }) => {
         {/* LEFT IMAGES */}
 
         <div className="product-gallery">
-          {product.images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={product.name}
-              className="gallery-image"
-            />
-          ))}
+          <div className="gallery-container">
+            {product.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={product.name}
+                className={
+                  index === currentImageIndex
+                    ? "gallery-image active"
+                    : "gallery-image"
+                }
+              />
+            ))}
+
+            <button className="gallery-arrow prev" onClick={prevImage}>
+              <img src="/icons/arrow-right.png" alt="prev" />
+            </button>
+            <button className="gallery-arrow next" onClick={nextImage}>
+              <img src="/icons/arrow-right.png" alt="next" />
+            </button>
+          </div>
         </div>
 
         {/* RIGHT DETAILS */}
@@ -271,7 +295,7 @@ const ProductDetails = ({ product }) => {
           {/* RETURNS */}
 
           <div className="return-info">
-            <img src="/icons/undo.png" alt="returns" />
+            <img src="/icons/redo.png" alt="returns" />
 
             <span>Easy returns within 30 days</span>
           </div>
