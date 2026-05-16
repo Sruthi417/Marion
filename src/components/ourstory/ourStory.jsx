@@ -22,7 +22,7 @@ const OurStory = () => {
             <div className="ourstory-content-right">
                  <Link href="/our-story">
               <button className="button">
-                Shop Now
+                Our Story
                 <img
                   src="/icons/arrow-right.png"
                   alt="arrow"

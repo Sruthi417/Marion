@@ -1,15 +1,14 @@
-.hero {
+.men-hero{
   .hero-section {
     position: relative;
     width: 100%;
-    /* Maintain aspect ratio to prevent distortion */
-    aspect-ratio: 1550 / 825;
     overflow: hidden;
+    aspect-ratio: 1550/600;
   }
 
   .hero-image {
     width: 100%;
-    height: 100%;
+    //height: 100%;
     
     object-fit: cover;
     display: block;
@@ -19,7 +18,7 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(to top,
-        rgba(0, 0, 0, .95) 0%,
+        rgba(0, 0, 0, 1) 0%,
         rgba(0, 0, 0, 0.35) 30%,
         rgba(0, 0, 0, 0) 60%);
     z-index: 1;
@@ -29,6 +28,7 @@
     position: absolute;
     inset: 0;
     z-index: 10;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -36,48 +36,13 @@
     color: white;
   }
 
-  .hero-content-left {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hero-sub {
-    font-size: 18px;
-    opacity: 70%;
-  }
 
   .hero-head {
     font-size: 74px;
     line-height: 0.9;
-    font-weight: 500;
+    font-weight: 600;
   }
 
-  .hero-content-right {
-    display: flex;
-  }
-
-  .button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 15px;
-    background: white;
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  .arrow-icon {
-    width: 15px;
-    height: 15px;
-    color: black;
-  }
-
-  a {
-    text-decoration: none;
-  }
 
 
 
