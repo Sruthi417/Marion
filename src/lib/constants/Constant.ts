@@ -19,12 +19,12 @@ export const products = [
     fabric: "100% Cotton",
 
     thumbnail: "/images/products/sand-hoodie-front.avif",
-     hoverImage: "/images/products/sand-hoodie-back.avif",
+    hoverImage: "/images/products/sand-hoodie-back.avif",
 
     images: [
+      "/images/products/sand-hoodie-front.avif",
       "/images/products/sand-hoodie-back.avif",
-     
-      "/images/products/sand-hoodie/3.jpg",
+      "/images/products/sand-hoodie-side.avif",
     ],
 
     tags: ["minimal", "oversized", "streetwear"],
@@ -51,11 +51,12 @@ export const products = [
     fabric: "100% Cotton",
 
     thumbnail: "/images/products/black-tshirt-front.avif",
-     hoverImage:  "/images/products/black-tshirt-back.avif",
+    hoverImage: "/images/products/black-tshirt-back.avif",
 
     images: [
+      "/images/products/black-tshirt-front.avif",
       "/images/products/black-tshirt-back.avif",
-      "/images/products/black-oversize/2.jpg",
+      "/images/products/black-tshirt-side.avif",
     ],
 
     tags: ["oversized", "basic", "streetwear"],
@@ -83,21 +84,21 @@ export const products = [
     fabric: "Cotton Blend",
 
     thumbnail: "/images/products/core-utility-pants-front.avif",
-     hoverImage: "/images/products/core-utility-pants.avif",
+    hoverImage: "/images/products/core-utility-pants.avif",
 
     images: [
-      "/images/products/core-utility-pants.avif",
+      "/images/products/core-utility-pants-front.avif",
       "/images/products/core-utility-pants.avif",
     ],
 
     tags: ["utility", "minimal", "cargo"],
   },
 
-   {
+  {
     id: "4",
     slug: "faded-black-jeans",
     name: "Faded Black Jeans",
-    category: "Jeans",
+    category: "Pants",
     gender: "Unisex",
     price: 79,
     oldPrice: null,
@@ -130,7 +131,6 @@ export const products = [
     tags: ["denim", "washed", "new"],
   },
 
-
   {
     id: "5",
     slug: "essential-hoodie",
@@ -156,8 +156,9 @@ export const products = [
     hoverImage: "/images/products/Essential-hoodie.avif",
 
     images: [
-      "/images/products/essential-hoodie/1.jpg",
+      "/images/products/essential-hooodie-front.avif",
       "/images/products/Essential-hoodie.avif",
+      "/images/products/essential-hooodie-side"
     ],
 
     tags: ["hoodie", "essential", "minimal"],
@@ -188,8 +189,9 @@ export const products = [
     hoverImage: "/images/products/Forest-tshirt.avif",
 
     images: [
-      "/images/products/forest-tee/1.jpg",
+      "/images/products/forest-tshirt-front.avif",
       "/images/products/Forest-tshirt.avif",
+      "/images/products/forest-tshirt-side.avif"
     ],
 
     tags: ["oversized", "green", "minimal"],
@@ -221,8 +223,9 @@ export const products = [
     hoverImage: "/images/products/ocean-hoodie.webp",
 
     images: [
-      "/images/products/ocean-hoodie/1.jpg",
+      "/images/products/ocean-blu-hoodie-front.avif",
       "/images/products/ocean-hoodie.webp",
+       "/images/products/ocean-blue-hoodie-side.avif"
     ],
 
     tags: ["hoodie", "blue", "streetwear"],
@@ -258,19 +261,19 @@ export const products = [
     hoverImage: "/images/products/yellow-tshirt-hover.avif",
 
     images: [
-      "/images/products/sand-oversize-tshirt.avif",
+      "/images/products/yellow-tshirt-front.avif",
       "/images/products/yellow-tshirt-hover.avif",
+      "/images/products/yellow-tshirt-side.avif",
     ],
 
     tags: ["oversized", "minimal", "new"],
   },
 
- 
   {
     id: "9",
     slug: "distressed-light-jeans",
     name: "Distressed Light Jeans",
-    category: "Jeans",
+    category: "Pants",
     gender: "Unisex",
     price: 79,
     oldPrice: null,
@@ -296,8 +299,9 @@ export const products = [
     hoverImage: "/images/products/distressed-light-jeans-hover.avif",
 
     images: [
-      "/images/products/distressed-light-jeans.avif",
+      "/images/products/Distressed Light Jeans Front.avif",
       "/images/products/distressed-light-jeans-hover.avif",
+      
     ],
 
     tags: ["denim", "distressed", "new"],

@@ -1,10 +1,9 @@
-'use client'
+"use client";
 import "./Navbar.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-
-const Navbar = () => {
+const Navbar = ({ forceScrolled = false }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,8 +21,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight =
-        document.querySelector(".hero-section")?.offsetHeight;
+      const heroHeight = document.querySelector(".hero-section")?.offsetHeight;
 
       if (window.scrollY > heroHeight - 100) {
         setScrolled(true);
@@ -40,27 +38,49 @@ const Navbar = () => {
     };
   }, []);
 
-
   return (
-    <div className={`nav ${scrolled ? "scrolled" : ""} ${isOpen ? "menu-open" : ""}`}>
+    <div
+      className={`nav ${
+        scrolled || forceScrolled ? "scrolled" : ""
+      } ${isOpen ? "menu-open" : ""}`}
+    >
       <div className="nav-full">
         <div className="nav-mobile-toggle">
-          <button className={`menu__icon ${isOpen ? "active" : ""}`} onClick={toggleMenu}>
+          <button
+            className={`menu__icon ${isOpen ? "active" : ""}`}
+            onClick={toggleMenu}
+          >
             <span></span>
             <span></span>
           </button>
         </div>
         <div className={`nav-left ${isOpen ? "open" : ""}`}>
-          <Link href="/men" className="nav-left-content" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/men"
+            className="nav-left-content"
+            onClick={() => setIsOpen(false)}
+          >
             Men
           </Link>
-          <Link href="/women" className="nav-left-content" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/women"
+            className="nav-left-content"
+            onClick={() => setIsOpen(false)}
+          >
             Women
           </Link>
-          <Link href="/our-story" className="nav-left-content" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/our-story"
+            className="nav-left-content"
+            onClick={() => setIsOpen(false)}
+          >
             Our Story
           </Link>
-          <Link href="/contact" className="nav-left-content" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/contact"
+            className="nav-left-content"
+            onClick={() => setIsOpen(false)}
+          >
             Contact
           </Link>
         </div>
@@ -71,18 +91,17 @@ const Navbar = () => {
         </div>
         <div className="nav-right">
           <button className="nav-button">
-            <img src={
-                scrolled
-                  ? "/icons/search-black.svg"
-                  : "/icons/search-white.svg"
-              } />
+            <img
+              src={
+                scrolled ? "/icons/search-black.svg" : "/icons/search-white.svg"
+              }
+            />
           </button>
           <Link href="/cart" className="nav-buttons">
-            <img src={
-                scrolled
-                  ? "/icons/cart-black.png"
-                  : "/icons/cart-white.png"
-              } alt="Cart" />
+            <img
+              src={scrolled ? "/icons/cart-black.png" : "/icons/cart-white.png"}
+              alt="Cart"
+            />
           </Link>
         </div>
       </div>

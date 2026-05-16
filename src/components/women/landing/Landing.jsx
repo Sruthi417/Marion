@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const Landing = () => {
   return (
-    <div className="men-hero">
+    <div className="women-hero">
       <div className="hero-section">
         <Image
-          src="/images/Men.avif"
+          src="/images/Women.avif"
           alt="Hero"
           width={1550}
           height={600}
@@ -16,7 +16,7 @@ const Landing = () => {
         />
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <div className="hero-head">For Men</div>
+          <div className="hero-head">For Women</div>
         </div>
       </div>
     </div>
