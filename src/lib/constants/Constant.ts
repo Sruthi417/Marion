@@ -148,7 +148,7 @@ export const products = [
     sizes: ["S", "M", "L"],
     isPopular: true,
     description:
-      "Classic everyday hoodie with premium heavyweight construction.",
+      "A classic black hoodie redefined in minimal form, made to be your layer.",
 
     fabric: "Cotton Fleece",
 
@@ -158,7 +158,7 @@ export const products = [
     images: [
       "/images/products/essential-hooodie-front.avif",
       "/images/products/Essential-hoodie.avif",
-      "/images/products/essential-hooodie-side"
+      "/images/products/essential-hooodie-side.avif"
     ],
 
     tags: ["hoodie", "essential", "minimal"],

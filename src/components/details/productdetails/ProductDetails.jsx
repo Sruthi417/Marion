@@ -4,12 +4,8 @@ import { useState } from "react";
 import "./ProductDetails.scss";
 
 const ProductDetails = ({ product }) => {
-  const [openDetails, setOpenDetails] = useState(false);
-
-  const [openDelivery, setOpenDelivery] = useState(false);
-
   const [openSizeGuide, setOpenSizeGuide] = useState(false);
-
+  const [activeAccordion, setActiveAccordion] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -19,7 +15,7 @@ const ProductDetails = ({ product }) => {
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prev) => (prev - 1 + product.images.length) % product.images.length
+      (prev) => (prev - 1 + product.images.length) % product.images.length,
     );
   };
 
@@ -234,7 +230,11 @@ const ProductDetails = ({ product }) => {
             <div className="accordion-item">
               <div
                 className="accordion-head"
-                onClick={() => setOpenDetails(!openDetails)}
+                onClick={() =>
+                  setActiveAccordion(
+                    activeAccordion === "details" ? null : "details",
+                  )
+                }
               >
                 <span>Details & Care</span>
 
@@ -242,23 +242,20 @@ const ProductDetails = ({ product }) => {
                   src="/icons/arrow-down.png"
                   alt="arrow"
                   className={
-                    openDetails ? "accordion-arrow active" : "accordion-arrow"
+                    activeAccordion === "details"
+                      ? "accordion-arrow active"
+                      : "accordion-arrow"
                   }
                 />
               </div>
 
-              {openDetails && (
+              <div className={`accordion-content-wrapper ${activeAccordion === "details" ? "open" : ""}`}>
                 <div className="accordion-content">
-                  Made from premium {product.fabric}.<br />
-                  Gentle machine wash in cold water.
-                  <br />
-                  Do not bleach.
-                  <br />
-                  Tumble dry on low heat.
-                  <br />
-                  Iron at low temperature if necessary.
+                  <div className="accordion-inner">
+                    Made from premium {product.fabric}. Gentle machine wash in cold water. Do not bleach. Tumble dry on low heat. Iron at low temperature if necessary.
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
 
             {/* DELIVERY */}
@@ -266,7 +263,11 @@ const ProductDetails = ({ product }) => {
             <div className="accordion-item">
               <div
                 className="accordion-head"
-                onClick={() => setOpenDelivery(!openDelivery)}
+                onClick={() =>
+                  setActiveAccordion(
+                    activeAccordion === "delivery" ? null : "delivery",
+                  )
+                }
               >
                 <span>Delivery and Payment</span>
 
@@ -274,21 +275,20 @@ const ProductDetails = ({ product }) => {
                   src="/icons/arrow-down.png"
                   alt="arrow"
                   className={
-                    openDelivery ? "accordion-arrow active" : "accordion-arrow"
+                    activeAccordion === "delivery"
+                      ? "accordion-arrow active"
+                      : "accordion-arrow"
                   }
                 />
               </div>
 
-              {openDelivery && (
+              <div className={`accordion-content-wrapper ${activeAccordion === "delivery" ? "open" : ""}`}>
                 <div className="accordion-content">
-                  Free shipping on orders above $149.
-                  <br />
-                  Delivery within 3–5 business days.
-                  <br />
-                  Secure payments via Visa, Mastercard, PayPal, Apple Pay and
-                  Google Pay.
+                  <div className="accordion-inner">
+                    Free shipping on orders above $149. Delivery within 3–5 business days. <br/><br/>Secure payments via Visa, Mastercard, PayPal, Apple Pay and Google Pay.
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
 
