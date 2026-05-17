@@ -84,6 +84,14 @@
 
 /* BADGES */
 
+.product-badges-wrapper {
+  position: absolute;
+  transform: translateY(-40px);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
 .product-badge {
   width: fit-content;
   //padding: 10px 14px;
@@ -92,7 +100,7 @@
   color: white;
   font-size: 13px;
   font-weight: 500;
-  margin-bottom: 14px;
+ 
 }
 
 .product-badge.new {

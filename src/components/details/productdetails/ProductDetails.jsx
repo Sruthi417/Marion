@@ -159,11 +159,11 @@ const ProductDetails = ({ product }) => {
         {/* RIGHT DETAILS */}
 
         <div className="product-content">
-          {/* BADGES */}
+          <div className="product-badges-wrapper">
+            {product.oldPrice && <div className="product-badge">Sale</div>}
 
-          {product.oldPrice && <div className="product-badge">Sale</div>}
-
-          {product.isNew && <div className="product-badge new">New</div>}
+            {product.isNew && <div className="product-badge new">New</div>}
+          </div>
 
           {/* TITLE */}
 
