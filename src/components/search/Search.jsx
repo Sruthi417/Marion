@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import "./Search.scss";
-import SearchData from "./SearchData";
+import { products } from "../../lib/constants/Constant";
 import useCartStore from "../../lib/store/carStore";
 import Link from "next/link";
 
@@ -33,13 +33,28 @@ const Search = () => {
     return () => window.removeEventListener("keydown", handleKey);
   }, [closeSearch]);
 
+  /* Normalization helper to strip spaces and hyphens for smarter matching */
+  const normalize = (str) => {
+    if (!str) return "";
+    return str.toLowerCase().replace(/[-\s]/g, "");
+  };
+
   /* Filtered results */
   const results = query.trim()
-    ? SearchData.filter((p) => {
-        const normalize = (str) => str.toLowerCase().replace(/-/g, "");
-        return normalize(p.name).includes(normalize(query));
+    ? products.filter((product) => {
+        const normQuery = normalize(query);
+        
+        const matchName = normalize(product.name).includes(normQuery);
+        const matchSlug = normalize(product.slug).includes(normQuery);
+        const matchDesc = normalize(product.description || "").includes(normQuery);
+        const matchCategory = normalize(product.category || "").includes(normQuery);
+
+        return matchName || matchSlug || matchDesc || matchCategory;
       })
     : [];
+
+  /* Suggested/Trending products when query is empty */
+  const suggestions = products.slice(0, 3);
 
   const handleResultClick = () => {
     closeSearch();
@@ -94,10 +109,10 @@ const Search = () => {
           </button>
         </div>
 
-        {/* Results */}
-        {query.trim() && (
-          <div className="search-results">
-            {results.length > 0 ? (
+        {/* Results or Suggestions */}
+        <div className="search-results">
+          {query.trim() ? (
+            results.length > 0 ? (
               results.map((product) => (
                 <Link
                   key={product.id}
@@ -111,9 +126,24 @@ const Search = () => {
               ))
             ) : (
               <div className="search-no-results">No results</div>
-            )}
-          </div>
-        )}
+            )
+          ) : (
+            <div className="search-suggestions">
+              <div className="search-suggestions-title">Suggested Products</div>
+              {suggestions.map((product) => (
+                <Link
+                  key={product.id}
+                  href={`/products/${product.slug}`}
+                  className="search-result-item"
+                  onClick={handleResultClick}
+                >
+                  <span className="result-name">{product.name}</span>
+                  <span className="result-route">/products/{product.slug}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
