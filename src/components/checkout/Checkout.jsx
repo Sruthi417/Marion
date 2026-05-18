@@ -11,6 +11,7 @@ const Checkout = () => {
   const {
     isCheckoutOpen,
     closeCheckout,
+    closeCart,
     cartItems,
     removedCheckoutItems,
     removeCheckoutItem,
@@ -248,7 +249,14 @@ const Checkout = () => {
             </div>
 
             {/* BUTTON */}
-            <Link href="/under-development" className="place-holder-link">
+            <Link 
+              href="/under-development" 
+              className="place-holder-link"
+              onClick={() => {
+                closeCheckout();
+                closeCart();
+              }}
+            >
               <button className="place-order-button">
                 Place Order &nbsp;&nbsp;→
               </button>
