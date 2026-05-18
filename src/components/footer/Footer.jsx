@@ -39,9 +39,7 @@ const Footer = () => {
               {" "}
               {/*flex direction column*/}
               <div className="sub">(Navigation)</div>
-              <Link href="/index" className="head">
-                Index
-              </Link>
+             
               <Link href="/men" className="head">
                 Men
               </Link>
@@ -56,10 +54,10 @@ const Footer = () => {
               {" "}
               {/*flex direction column*/}
               <div className="sub">(Legal)</div>
-              <Link href="/policy" className="head">
+              <Link href="/privacy-policy" className="head">
                 Privacy Policy
               </Link>
-              <Link href="/service" className="head">
+              <Link href="/terms-of-service" className="head">
                 Terms of Service
               </Link>
             </div>
@@ -70,9 +68,7 @@ const Footer = () => {
               <Link href="/contact" className="head">
                 Contact
               </Link>
-              <Link href="/faq" className="head">
-                FAQ
-              </Link>
+              
             </div>
           </div>
 
@@ -95,7 +91,7 @@ const Footer = () => {
               <br />
               emails from us and accept our
               <span className="privacy">
-                <Link href="/policy"> Privacy Policy</Link>
+                <Link href="/privacy-policy"> Privacy Policy</Link>
               </span>
             </div>
           </div>
