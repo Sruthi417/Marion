@@ -124,7 +124,7 @@ export const products = [
     hoverImage: "/images/products/Faded-black-jeans-hover.avif",
 
     images: [
-      "/images/products/faded-black-jeans.avif",
+      "/images/products/faded-black-jeans-front.avif",
       "/images/products/Faded-black-jeans-hover.avif",
     ],
 
