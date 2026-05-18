@@ -5,34 +5,34 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="hero">
-      <div className="hero-section">
+      <div className="heros-section">
         <Image
           src="/images/hero.png"
           alt="Hero"
           width={1550}
           height={825}
-          className="hero-image"
+          className="heros-image"
           priority
         />
 
-        <div className="hero-overlay"></div>
+        <div className="heros-overlay"></div>
 
-        <div className="hero-content">
-          <div className="hero-content-left">
-            <div className="hero-sub">(Featured Collection)</div>
-            <div className="hero-head">
+        <div className="heros-content">
+          <div className="heros-content-left">
+            <div className="heros-sub">(Featured Collection)</div>
+            <div className="heros-head">
               Timeless Essentials <br />
               for the Season
             </div>
           </div>
-          <div className="hero-content-right">
+          <div className="heros-content-right">
             <Link href="/men">
               <button className="button">
                 Shop Now
                 <img
                   src="/icons/arrow-right.png"
                   alt="arrow"
-                  className="arrow-icon"
+                  className="arrows-icon"
                 />
               </button>
             </Link>

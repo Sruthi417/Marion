@@ -1,5 +1,5 @@
 .hero {
-  .hero-section {
+  .heros-section {
     position: relative;
     width: 100%;
     /* Maintain aspect ratio to prevent distortion */
@@ -7,7 +7,7 @@
     overflow: hidden;
   }
 
-  .hero-image {
+  .heros-image {
     width: 100%;
     height: 100%;
     
@@ -15,7 +15,7 @@
     display: block;
   }
 
-  .hero-overlay {
+  .heros-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top,
@@ -25,7 +25,7 @@
     z-index: 1;
   }
 
-  .hero-content {
+  .heros-content {
     position: absolute;
     inset: 0;
     z-index: 10;
@@ -36,24 +36,24 @@
     color: white;
   }
 
-  .hero-content-left {
+  .heros-content-left {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
 
-  .hero-sub {
+  .heros-sub {
     font-size: 18px;
     opacity: 70%;
   }
 
-  .hero-head {
+  .heros-head {
     font-size: 74px;
     line-height: 0.9;
     font-weight: 500;
   }
 
-  .hero-content-right {
+  .heros-content-right {
     display: flex;
   }
 
@@ -69,7 +69,7 @@
     cursor: pointer;
   }
 
-  .arrow-icon {
+  .arrows-icon {
     width: 15px;
     height: 15px;
     color: black;
@@ -82,34 +82,34 @@
 
 
   @media (max-width: 1200px) {
-    .hero-head {
+    .heros-head {
       font-size: 60px;
     }
   }
 
   @media (max-width: 992px) {
-    .hero-head {
+    .heros-head {
       font-size: 48px;
     }
-    .hero-content {
+    .heros-content {
       padding: 40px;
     }
   }
 
   @media (max-width: 765px) {
-    .hero-content {
+    .heros-content {
       padding: 25px;
     }
     
-    .hero-head {
+    .heros-head {
       font-size: 32px;
     }
 
-    .hero-sub {
+    .heros-sub {
       font-size: 14px;
     }
 
-    .hero-content-left {
+    .heros-content-left {
       gap: 8px;
     }
 
@@ -120,18 +120,18 @@
       gap: 8px;
     }
 
-    .arrow-icon {
+    .arrows-icon {
       width: 12px;
       height: 12px;
     }
   }
 
   @media (max-width: 540px) {
-    .hero-content {
+    .heros-content {
       padding: 15px;
     }
 
-    .hero-head {
+    .heros-head {
       font-size: 24px;
     }
 
@@ -143,14 +143,14 @@
 
   @media (max-width: 420px) {
     /* Stack only on very small screens if necessary, otherwise keep side-by-side */
-    .hero-content {
+    .heros-content {
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-end;
       gap: 15px;
     }
 
-    .hero-head {
+    .heros-head {
       font-size: 22px;
     }
 

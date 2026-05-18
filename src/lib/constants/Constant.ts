@@ -220,11 +220,11 @@ export const products = [
     fabric: "Cotton Blend",
 
     thumbnail: "/images/products/ocean-blu-hoodie-front.avif",
-    hoverImage: "/images/products/ocean-hoodie.webp",
+    hoverImage: "/images/products/Ocean-hoodie.webp",
 
     images: [
       "/images/products/ocean-blu-hoodie-front.avif",
-      "/images/products/ocean-hoodie.webp",
+      "/images/products/Ocean-hoodie.webp",
        "/images/products/ocean-blue-hoodie-side.avif"
     ],
 
