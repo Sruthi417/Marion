@@ -15,9 +15,17 @@ const useCartStore = create(
       isCheckoutOpen: false,
       removedCheckoutItems: [],
 
+      /* SEARCH */
+
+      isSearchOpen: false,
+
       openCart: () => set({ isCartOpen: true }),
       
       closeCart: () => set({ isCartOpen: false }),
+
+      openSearch: () => set({ isSearchOpen: true }),
+
+      closeSearch: () => set({ isSearchOpen: false }),
 
       openCheckout: () => set({
         isCheckoutOpen: true,

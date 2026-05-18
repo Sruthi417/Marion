@@ -3,6 +3,7 @@ import "./Navbar.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cart from "../../cart/Cart";
+import Search from "../../search/Search";
 import useCartStore from "../../../lib/store/carStore";
 
 const Navbar = ({ forceScrolled = false }) => {
@@ -14,6 +15,7 @@ const Navbar = ({ forceScrolled = false }) => {
   };
 
   const openCart = useCartStore((state) => state.openCart);
+  const openSearch = useCartStore((state) => state.openSearch);
 
   const cartItems = useCartStore((state) => state.cartItems);
 
@@ -100,7 +102,7 @@ const Navbar = ({ forceScrolled = false }) => {
           </Link>
         </div>
         <div className="nav-right">
-          <button className="nav-button">
+          <button className="nav-button" onClick={openSearch}>
             <img
               src={
                 scrolled || forceScrolled
@@ -124,6 +126,7 @@ const Navbar = ({ forceScrolled = false }) => {
         </div>
       </div>
       <Cart/>
+      <Search/>
     </div>
   );
 };
