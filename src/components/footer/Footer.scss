@@ -125,6 +125,7 @@
 
   .newsletter-button {
     width: 85px;
+    flex-shrink: 0;
     height: 50px;
     border: none;
     background: white;

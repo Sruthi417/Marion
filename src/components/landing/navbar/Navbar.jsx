@@ -2,6 +2,8 @@
 import "./Navbar.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Cart from "../../cart/Cart";
+import useCartStore from "../../../lib/store/carStore";
 
 const Navbar = ({ forceScrolled = false }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,6 +12,14 @@ const Navbar = ({ forceScrolled = false }) => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const openCart = useCartStore((state) => state.openCart);
+
+  const cartItems = useCartStore((state) => state.cartItems);
+
+  /* TOTAL COUNT */
+
+  const totalCount = cartItems.length;
 
   useEffect(() => {
     if (isOpen) {
@@ -99,7 +109,7 @@ const Navbar = ({ forceScrolled = false }) => {
               }
             />
           </button>
-          <Link href="/cart" className="nav-buttons">
+          <button className="nav-buttons" onClick={openCart}>
             <img
               src={
                 scrolled || forceScrolled
@@ -108,9 +118,12 @@ const Navbar = ({ forceScrolled = false }) => {
               }
               alt="Cart"
             />
-          </Link>
+
+            {totalCount > 0 && <div className="cart-count">{totalCount}</div>}
+          </button>
         </div>
       </div>
+      <Cart/>
     </div>
   );
 };

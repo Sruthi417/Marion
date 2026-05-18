@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./ProductDetails.scss";
+import useCartStore from "../../../lib/store/carStore";
 
 const ProductDetails = ({ product }) => {
   const [openSizeGuide, setOpenSizeGuide] = useState(false);
@@ -18,6 +19,10 @@ const ProductDetails = ({ product }) => {
       (prev) => (prev - 1 + product.images.length) % product.images.length,
     );
   };
+
+  const addProduct = useCartStore((state) => state.addProduct);
+
+  const openCart = useCartStore((state) => state.openCart);
 
   return (
     <>
@@ -220,7 +225,19 @@ const ProductDetails = ({ product }) => {
 
           {/* BUTTON */}
 
-          <button className="add-cart-button">Add to Cart</button>
+          <button
+            className="add-cart-button"
+            onClick={() => {
+              if (!selectedSize && product.sizes && product.sizes.length > 0) {
+                alert("Please select a size");
+                return;
+              }
+              addProduct(product, selectedSize || (product.sizes ? product.sizes[0] : "S"));
+              openCart();
+            }}
+          >
+            Add to Cart
+          </button>
 
           {/* ACCORDION */}
 
@@ -249,10 +266,14 @@ const ProductDetails = ({ product }) => {
                 />
               </div>
 
-              <div className={`accordion-content-wrapper ${activeAccordion === "details" ? "open" : ""}`}>
+              <div
+                className={`accordion-content-wrapper ${activeAccordion === "details" ? "open" : ""}`}
+              >
                 <div className="accordion-content">
                   <div className="accordion-inner">
-                    Made from premium {product.fabric}. Gentle machine wash in cold water. Do not bleach. Tumble dry on low heat. Iron at low temperature if necessary.
+                    Made from premium {product.fabric}. Gentle machine wash in
+                    cold water. Do not bleach. Tumble dry on low heat. Iron at
+                    low temperature if necessary.
                   </div>
                 </div>
               </div>
@@ -282,10 +303,16 @@ const ProductDetails = ({ product }) => {
                 />
               </div>
 
-              <div className={`accordion-content-wrapper ${activeAccordion === "delivery" ? "open" : ""}`}>
+              <div
+                className={`accordion-content-wrapper ${activeAccordion === "delivery" ? "open" : ""}`}
+              >
                 <div className="accordion-content">
                   <div className="accordion-inner">
-                    Free shipping on orders above $149. Delivery within 3–5 business days. <br/><br/>Secure payments via Visa, Mastercard, PayPal, Apple Pay and Google Pay.
+                    Free shipping on orders above $149. Delivery within 3–5
+                    business days. <br />
+                    <br />
+                    Secure payments via Visa, Mastercard, PayPal, Apple Pay and
+                    Google Pay.
                   </div>
                 </div>
               </div>
