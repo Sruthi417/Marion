@@ -271,3 +271,31 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+/* RESPONSIVE */
+
+@media (max-width: 450px) {
+  .cart-sidebar {
+    width: 100%;
+  }
+
+  .cart-top {
+    padding: 25px 15px;
+  }
+
+  .cart-items {
+    padding: 20px 15px;
+  }
+
+  .cart-bottom {
+    padding: 25px 15px;
+  }
+
+  .cart-item {
+    gap: 15px;
+  }
+
+  .quantity-controls {
+    gap: 6px;
+  }
+}
