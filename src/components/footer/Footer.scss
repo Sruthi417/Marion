@@ -238,12 +238,12 @@
 
   @media (max-width: 580px) {
     .footer-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-no-card,
     .footer-content {
-      grid-column: span 1;
+      grid-column: span 2;
     }
 
     .footer-head {
@@ -252,10 +252,12 @@
 
     .footer-card {
       min-height: 120px;
-      flex-direction: row;
-      justify-content: flex-start;
-      padding: 0 30px;
-      gap: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      gap: 15px;
+      text-align: center;
     }
 
     .footer-card-icon {
