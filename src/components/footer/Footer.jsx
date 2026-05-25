@@ -39,7 +39,7 @@ const Footer = () => {
               {" "}
               {/*flex direction column*/}
               <div className="sub">(Navigation)</div>
-             
+
               <Link href="/men" className="head">
                 Men
               </Link>
@@ -68,19 +68,20 @@ const Footer = () => {
               <Link href="/contact" className="head">
                 Contact
               </Link>
-              
+
             </div>
           </div>
 
           <div className="newsletter">
             <div className="email-first">
-                Subscribe to our newsletter for new arrivals and special offers
+              Subscribe to our newsletter for new arrivals and special offers
             </div>
             <div className="email">
               <input
                 type="email"
                 placeholder="Your Email"
                 className="newsletter-input"
+                suppressHydrationWarning
               />
 
               <button className="newsletter-button">Submit</button>

@@ -2,6 +2,7 @@
 import "./Navbar.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Cart from "../../cart/Cart";
 import Search from "../../search/Search";
 import useCartStore from "../../../lib/store/carStore";
@@ -9,18 +10,28 @@ import useCartStore from "../../../lib/store/carStore";
 const Navbar = ({ forceScrolled = false }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const openCart = useCartStore((state) => state.openCart);
-  const openSearch = useCartStore((state) => state.openSearch);
+  const storeOpenCart = useCartStore((state) => state.openCart);
+  const storeOpenSearch = useCartStore((state) => state.openSearch);
+
+  const openCart = () => {
+    setIsOpen(false);
+    storeOpenCart();
+  };
+
+  const openSearch = () => {
+    setIsOpen(false);
+    storeOpenSearch();
+  };
 
   const cartItems = useCartStore((state) => state.cartItems);
 
   /* TOTAL COUNT */
-
   const totalCount = cartItems.length;
 
   useEffect(() => {
@@ -33,9 +44,12 @@ const Navbar = ({ forceScrolled = false }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = document.querySelector(".hero-section")?.offsetHeight;
+      // Find the hero element on the Home page (.heros-section) or other pages (.hero-section)
+      const heroEl = document.querySelector(".heros-section") || document.querySelector(".hero-section");
+      const heroHeight = heroEl?.offsetHeight;
 
-      if (window.scrollY > heroHeight - 100) {
+      // Only perform scroll detection if hero element is present
+      if (heroHeight !== undefined && window.scrollY > heroHeight - 100) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -49,6 +63,11 @@ const Navbar = ({ forceScrolled = false }) => {
       document.body.style.overflow = "unset"; // Cleanup
     };
   }, []);
+
+  // Close the mobile menu on any route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <div
@@ -66,7 +85,7 @@ const Navbar = ({ forceScrolled = false }) => {
             <span></span>
           </button>
         </div>
-        <div className={`nav-left ${isOpen ? "open" : ""}`}>
+        <div className={`nav-left ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(false)}>
           <Link
             href="/men"
             className="nav-left-content"
@@ -97,7 +116,7 @@ const Navbar = ({ forceScrolled = false }) => {
           </Link>
         </div>
         <div className="nav-center">
-          <Link href="/" className="nav-center-content">
+          <Link href="/" className="nav-center-content" onClick={() => setIsOpen(false)}>
             MARION
           </Link>
         </div>
@@ -130,4 +149,5 @@ const Navbar = ({ forceScrolled = false }) => {
     </div>
   );
 };
+
 export default Navbar;

@@ -157,7 +157,6 @@
   transform: translateY(3px);
 }
 
-.menu__icon:hover,
 .menu__icon.active {
   span:nth-child(1),
   span:nth-child(2) {
@@ -176,6 +175,29 @@
 
   span:nth-child(2) {
     transform: rotate(-45deg) translateY(-1px);
+  }
+}
+
+@media (hover: hover) {
+  .menu__icon:hover {
+    span:nth-child(1),
+    span:nth-child(2) {
+      transition: transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+
+    span:nth-child(1)::before,
+    span:nth-child(2)::before {
+      transform: none;
+      transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+    }
+
+    span:nth-child(1) {
+      transform: rotate(45deg) translateY(1px);
+    }
+
+    span:nth-child(2) {
+      transform: rotate(-45deg) translateY(-1px);
+    }
   }
 }
 
