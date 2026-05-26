@@ -60,7 +60,7 @@ const Cart = () => {
         <div className="cart-items">
           {cartItems.length === 0 ? (
             <div className="empty-cart">
-              <h3>Your cart is empty</h3>
+              <h3 style={{fontWeight:600}}>Your cart is empty</h3>
 
               <p>Add some items to the cart.</p>
             </div>
