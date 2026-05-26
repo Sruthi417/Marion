@@ -2,7 +2,7 @@
   .ourstory-image {
     position: relative;
     width: 100%;
-    aspect-ratio: 1550 / 825;
+    height: 100vh;
     overflow: hidden;
   }
 
@@ -10,7 +10,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     display: block;
+    transition: object-position 0.3s ease;
   }
 
   .overlay {
@@ -113,9 +115,9 @@
     }
 
     .ourstory-content-head {
-      font-size: 28px;
+      font-size: 32px;
     }
-    
+
     .button {
       padding: 12px 20px;
       font-size: 13px;
@@ -128,7 +130,7 @@
     }
 
     .ourstory-content-head {
-      font-size: 24px;
+      font-size: 32px;
     }
 
     .ourstory-content-sub {
@@ -152,29 +154,30 @@
   }
 
   @media (max-width: 540px) {
-    
+
     .ourstory-content {
       padding: 15px;
       gap: 15px;
     }
 
     .ourstory-content-head {
-      font-size: 20px;
+      font-size: 28px;
     }
 
     .button {
       padding: 8px 14px;
       font-size: 11px;
     }
-  
-}
+
+  }
+
   @media (max-width: 420px) {
     .ourstory-content-head {
-      font-size: 18px;
+      font-size: 24px;
     }
 
     .ourstory-content-sub {
-      font-size: 12px;
+      font-size: 14px;
     }
 
     .button {

@@ -2,17 +2,17 @@
   .heros-section {
     position: relative;
     width: 100%;
-    /* Maintain aspect ratio to prevent distortion */
-    aspect-ratio: 1550 / 825;
+    height: 100vh;
     overflow: hidden;
   }
 
   .heros-image {
     width: 100%;
     height: 100%;
-    
     object-fit: cover;
+    object-position: center center;
     display: block;
+    transition: object-position 0.3s ease;
   }
 
   .heros-overlay {
@@ -79,30 +79,51 @@
     text-decoration: none;
   }
 
-
-
-  @media (max-width: 1200px) {
-    .heros-head {
-      font-size: 60px;
+  
+  @media (max-width: 1400px) {
+    .heros-image {
+      object-position: 45% center;
     }
   }
 
-  @media (max-width: 992px) {
-    .heros-head {
-      font-size: 48px;
+  // Desktop — begin shifting focal point left
+  @media (max-width: 1200px) {
+    .heros-image {
+      object-position: 42% center;
     }
+
+    .heros-head {
+     // font-size: 60px;
+    }
+  }
+
+  // Tablet landscape — controlled left shift
+  @media (max-width: 992px) {
+    .heros-image {
+      object-position: 38% center;
+    }
+
+    .heros-head {
+      font-size: 60px;
+    }
+
     .heros-content {
       padding: 40px;
     }
   }
 
+  // Tablet portrait — more aggressive left positioning
   @media (max-width: 765px) {
+    .heros-image {
+      object-position: 35% center;
+    }
+
     .heros-content {
       padding: 25px;
     }
-    
+
     .heros-head {
-      font-size: 32px;
+      font-size: 48px;
     }
 
     .heros-sub {
@@ -126,13 +147,18 @@
     }
   }
 
+  // Large phone — right-most person partially cropped
   @media (max-width: 540px) {
+    .heros-image {
+      object-position: 30% center;
+    }
+
     .heros-content {
       padding: 15px;
     }
 
     .heros-head {
-      font-size: 24px;
+      font-size: 48px;
     }
 
     .button {
@@ -141,6 +167,7 @@
     }
   }
 
+  // Small phone — stack content vertically
   @media (max-width: 420px) {
     /* Stack only on very small screens if necessary, otherwise keep side-by-side */
     .heros-content {
@@ -151,11 +178,18 @@
     }
 
     .heros-head {
-      font-size: 22px;
+      font-size: 48px;
     }
 
     .button {
       width: fit-content; // Keep it from being full-width as requested
+    }
+  }
+
+  // Mobile: crop from the right to keep first 3 people visible
+  @media (max-width: 405px) {
+    .heros-image {
+      object-position: 27% center;
     }
   }
 }
