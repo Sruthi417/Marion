@@ -1,5 +1,6 @@
 import Stripe from "stripe";
 import { STRIPE_SECRET_KEY, CLIENT_URL } from "../../config/env.js";
+import Order from "../orders/order.model.js";
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
@@ -33,7 +34,7 @@ export const createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `${CLIENT_URL}/orders`, //checkout-success?session_id={CHECKOUT_SESSION_ID}
+      success_url: `${CLIENT_URL}/orders?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${CLIENT_URL}/cart`, //checkout-cancel
       metadata: {
         totalAmount: String(totalAmount),
@@ -52,5 +53,69 @@ export const createCheckoutSession = async (req, res) => {
       success: false,
       message: error.message,
     });
+  }
+};
+
+/* VERIFY STRIPE SESSION AND CREATE ORDER */
+
+export const verifyAndCreateOrder = async (req, res) => {
+  try {
+    const { sessionId, orderPayload } = req.body;
+
+    if (!sessionId) {
+      return res.status(400).json({ success: false, message: "sessionId is required" });
+    }
+
+    /* Retrieve the session from Stripe and confirm payment succeeded */
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+    if (!session || session.payment_status !== "paid") {
+      return res.status(400).json({
+        success: false,
+        message: "Payment not completed. Order will not be created.",
+      });
+    }
+
+    /* Idempotency: if an order was already created for this session, return it */
+    const existing = await Order.findOne({ stripeSessionId: sessionId });
+    if (existing) {
+      return res.status(200).json({
+        success: true,
+        message: "Order already exists",
+        order: existing,
+      });
+    }
+
+    /* Payment confirmed — create the order */
+    const {
+      products,
+      shippingAddress,
+      subtotal,
+      shippingFee,
+      totalAmount,
+    } = orderPayload;
+
+    const order = await Order.create({
+      user: req.user._id,
+      products,
+      shippingAddress,
+      subtotal,
+      shippingFee,
+      totalAmount,
+      stripeSessionId: sessionId,
+      paymentStatus: "paid",
+      orderStatus: "processing",
+    });
+
+    console.log("[Stripe] Order created after payment verification:", order._id);
+
+    res.status(201).json({
+      success: true,
+      message: "Order placed successfully",
+      order,
+    });
+  } catch (error) {
+    console.error("[Stripe] verifyAndCreateOrder error:", error.message);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
